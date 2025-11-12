@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofia Digital - Recriação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background': '#000000',
+                        'foreground': '#fafafa',
+                        'card': '#1f1f1f',
+                        'card-foreground': '#fafafa',
+                        'popover': '#1f1f1f',
+                        'popover-foreground': '#fafafa',
+                        'primary': '#6e0ea7',
+                        'primary-foreground': '#ffffff',
+                        'secondary': '#69d891',
+                        'secondary-foreground': '#141414',
+                        'muted': '#333333',
+                        'muted-foreground': '#999999',
+                        'accent': '#f8853e',
+                        'accent-foreground': '#141414',
+                        'destructive': '#d14949',
+                        'destructive-foreground': '#ffffff',
+                        'border': '#404040',
+                        'input': '#404040',
+                        'ring': '#d266e0',
+                        'chart-1': '#d66b3c',
+                        'chart-2': '#4a90e2',
+                        'chart-3': '#4860e3',
+                        'chart-4': '#f5c14d',
+                        'chart-5': '#f0b45c',
+                        'radius': '.5rem',
+                        'sidebar': '#fafafa',
+                        'sidebar-foreground': '#252525',
+                        'sidebar-primary': '#363636',
+                        'sidebar-primary-foreground': '#fafafa',
+                        'sidebar-accent': '#f7f7f7',
+                        'sidebar-accent-foreground': '#363636',
+                        'sidebar-border': '#ebebeb',
+                        'sidebar-ring': '#b3b3b3',
+                        'custom-brown': '#6f4f2c'
+                    }
+                    ,
+                    fontFamily: {
+                        'serif-display': ['Georgia', 'Times New Roman', 'serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            visibility: hidden;
+            transition: visibility 0s linear 0.1s, opacity 0.1s;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <nav class="fixed top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg">
+        <div class="container mx-auto flex h-16 items-center justify-between px-4">
+            <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-sparkles h-6 w-6 text-primary">
+                    <path
+                        d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z">
+                    </path>
+                    <path d="M20 3v4"></path>
+                    <path d="M22 5h-4"></path>
+                    <path d="M4 17v2"></path>
+                    <path d="M5 18H3"></path>
+                </svg><span class="text-xl font-bold text-foreground">Estúdio MKT</span></div>
+            <div class="hidden items-center gap-8 md:flex"><a href="#sobre"
+                    class="text-sm text-muted-foreground transition-colors hover:text-foreground">Sobre</a><a
+                    href="#servicos"
+                    class="text-sm text-muted-foreground transition-colors hover:text-foreground">Serviços</a><a
+                    href="#trabalhos"
+                    class="text-sm text-muted-foreground transition-colors hover:text-foreground">Trabalhos</a><a
+                    href="#depoimentos"
+                    class="text-sm text-muted-foreground transition-colors hover:text-foreground">Depoimentos</a><button
+                    data-slot="button"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-9 px-4 py-2 has-[&gt;svg]:px-3 bg-primary text-primary-foreground hover:bg-primary/90">Contato</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative overflow-hidden pt-32 pb-20 ">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-transparent"></div>
+        <div class="container relative mx-auto px-4">
+            <div class="mx-auto max-w-4xl text-center">
+                <div
+                    class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-zap h-4 w-4 text-primary">
+                        <path
+                            d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+                        </path>
+                    </svg><span class="text-sm text-primary">Especialista em Marketing Digital</span>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="src/logoMKT.png" alt="" class="w-24 md:w-44">
+                </div>
+                <h1 class="mb-6 text-balance text-5xl font-bold leading-tight text-foreground md:text-7xl">Transformo
+                    Marcas em <span
+                        class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Experiências
+                        Digitais</span></h1>
+                <p class="mb-8 text-balance text-xl text-muted-foreground md:text-2xl">Estratégias criativas que geram
+                    resultados reais. Mais tráfego, mais conversões, mais crescimento.</p>
+                <div class="flex flex-col items-center justify-center gap-4 sm:flex-row"><button data-slot="button"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-10 rounded-md px-6 has-[&gt;svg]:px-4 bg-primary text-primary-foreground hover:bg-primary/90">Começar
+                        Projeto <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 h-4 w-4">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg></button>
+                    <button data-slot="button"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-10 rounded-md px-6 has-[&gt;svg]:px-4 border-border text-foreground hover:bg-card bg-transparent"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-circle-play mr-2 h-4 w-4">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                        </svg> Ver Vídeo</button>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="container mx-auto mt-20 px-4">
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="text-center">
+                    <div class="mb-2 text-4xl font-bold text-primary">200+</div>
+                    <div class="text-sm text-muted-foreground">Projetos Concluídos</div>
+                </div>
+                <div class="text-center">
+                    <div class="mb-2 text-4xl font-bold text-primary">98%</div>
+                    <div class="text-sm text-muted-foreground">Clientes Satisfeitos</div>
+                </div>
+                <div class="text-center">
+                    <div class="mb-2 text-4xl font-bold text-primary">5x</div>
+                    <div class="text-sm text-muted-foreground">ROI Médio</div>
+                </div>
+                <div class="text-center">
+                    <div class="mb-2 text-4xl font-bold text-primary">50M+</div>
+                    <div class="text-sm text-muted-foreground">Impressões Geradas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="sobre" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+                <div>
+                    <h2 class="mb-6 text-balance text-4xl font-bold text-foreground md:text-5xl">Olá, sou Lorena
+                        Previtali
+                    </h2>
+                    <div class="space-y-4 text-lg text-muted-foreground">
+                        <p>Apaixonada por comunicação, criatividade e por ajudar marcas a se conectarem de verdade com
+                            as pessoas.</p>
+                        <p>Atuo há mais de 10 anos na área de marketing digital e publicidade, e ao longo desse tempo
+                            percebi que muitos empreendedores incríveis deixam de crescer por falta de tempo, estratégia
+                            ou por acharem que marketing é inacessível.</p>
+                        <p>É por isso que criei o Estúdio MKT: para mostrar que é possível ter um posicionamento
+                            profissional e resultados reais sem precisar investir uma fortuna.</p>
+                        <p>O foco é você e o seu negócio. Cada estratégia é pensada com cuidado, para que cada post,
+                            vídeo e centavo investido realmente façam a diferença.</p>
+                    </div>
+                    <div class="space-y-4 text-lg text-muted-foreground">
+                        <p>Oferecemos soluções completas: criação e edição de vídeos, artes estáticas, planejamento de
+                            conteúdo e identidade visual, tudo feito com leveza, propósito e aquele toque estratégico
+                            que transforma seguidores em clientes fiéis.</p>
+                        <p>Se você busca crescer de forma inteligente, humana e autêntica, seja bem-vindo(a) o Estúdio
+                            MKT é o seu lugar.</p>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span
+                            class="rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">Marketing
+                            Digital</span>
+                        <span
+                            class="rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">Criação
+                            de Vídeos</span>
+                        <span
+                            class="rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">Planejamento
+                            de Conteúdo</span>
+                        <span
+                            class="rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">Identidade
+                            Visual</span>
+                        <span
+                            class="rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">Estratégia
+                            Humanizada</span>
+                        <span
+                            class="rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">Publicidade</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-square overflow-hidden rounded-2xl border border-border bg-card"><img
+                            alt="Sofia Costa" class="h-full w-full object-cover" src="src/img/fotoLorena.jpg">
+                    </div>
+                    <div class="absolute -bottom-6 right-0 md:-right-6 rounded-xl border border-border bg-card p-6">
+                        <div class="flex items-center gap-3">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-trending-up h-6 w-6 text-primary">
+                                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                                    <polyline points="16 7 22 7 22 13"></polyline>
+                                </svg></div>
+                            <div>
+                                <div class="text-2xl font-bold text-foreground">350%</div>
+                                <div class="text-sm text-muted-foreground">Crescimento Médio</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="servicos" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mb-12 text-center">
+                <h2 class="mb-4 text-balance text-4xl font-bold text-foreground md:text-5xl">Serviços Especializados
+                </h2>
+                <p class="text-balance text-xl text-muted-foreground">Soluções completas para impulsionar sua presença
+                    digital</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm group border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-trending-up mb-4 h-10 w-10 text-primary transition-transform group-hover:scale-110">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                        <polyline points="16 7 22 7 22 13"></polyline>
+                    </svg>
+                    <h3 class="mb-3 text-xl font-bold text-foreground">Gestão de Tráfego Pago</h3>
+                    <p class="text-muted-foreground">Campanhas otimizadas no Google Ads, Meta Ads e LinkedIn que
+                        maximizam seu ROI e geram leads qualificados.</p>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm group border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-sparkles mb-4 h-10 w-10 text-primary transition-transform group-hover:scale-110">
+                        <path
+                            d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z">
+                        </path>
+                        <path d="M20 3v4"></path>
+                        <path d="M22 5h-4"></path>
+                        <path d="M4 17v2"></path>
+                        <path d="M5 18H3"></path>
+                    </svg>
+                    <h3 class="mb-3 text-xl font-bold text-foreground">Criação de Arte Estática</h3>
+                    <p class="text-muted-foreground">Designs que chamam atenção. Desenvolvimento de artes
+                        personalizadas, sempre alinhadas à identidade visual do seu negócio.</p>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm group border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-zap mb-4 h-10 w-10 text-primary transition-transform group-hover:scale-110">
+                        <path
+                            d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+                        </path>
+                    </svg>
+                    <h3 class="mb-3 text-xl font-bold text-foreground">Criação de Identidade Visual</h3>
+                    <p class="text-muted-foreground">Sua marca reconhecida à primeira vista. Criação de identidades
+                        visuais completas com cores, tipografia e elementos que traduzem sua essência e fortalecem sua
+                        presença digital.</p>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm group border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-users mb-4 h-10 w-10 text-primary transition-transform group-hover:scale-110">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <h3 class="mb-3 text-xl font-bold text-foreground">Planejamento de Conteúdo</h3>
+                    <p class="text-muted-foreground">Conteúdo com propósito e estratégia. Organização da comunicação
+                        para que cada post, story ou vídeo tenha intenção, coerência e gere resultados.</p>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm group border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-video mb-4 h-10 w-10 text-primary transition-transform group-hover:scale-110">
+                        <path d="m22 8.5-6 4.5 6 4.5v-9Z"></path>
+                        <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+                    </svg>
+                    <h3 class="mb-3 text-xl font-bold text-foreground">Gravação e Edição de Vídeo para Redes Sociais
+                    </h3>
+                    <p class="text-muted-foreground">Vídeos autênticos e envolventes. Produção e edição para Reels e
+                        Stories com ritmo, estética e mensagem certeira para captar atenção e gerar conexão.</p>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm group border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-circle-play mb-4 h-10 w-10 text-primary transition-transform group-hover:scale-110">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                    </svg>
+                    <h3 class="mb-3 text-xl font-bold text-foreground">Vídeo Marker de Eventos</h3>
+                    <p class="text-muted-foreground">Registros que contam histórias e eternizam momentos. Captação da
+                        essência de eventos (corporativos, festas, etc.) e transformação em vídeos marcantes e
+                        profissionais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="trabalhos" class="py-20 bg-card/30">
+        <div class="container mx-auto px-4">
+            <div class="mb-12 text-center">
+                <h2 class="mb-4 text-balance text-4xl font-bold text-foreground md:text-5xl">Projetos de Sucesso</h2>
+                <p class="text-balance text-xl text-muted-foreground">Alguns dos resultados que alcançamos para nossos
+                    clientes</p>
+            </div>
+            <div class="mb-8 flex justify-center text-sm text-primary md:hidden">
+                <span class="mr-2">
+                    &leftarrow; Arraste para o lado &rightarrow;
+                </span>
+            </div>
+            <div
+                class="flex space-x-6 overflow-x-auto snap-x snap-mandatory pb-4 md:grid md:gap-8 md:grid-cols-2 lg:grid-cols-3 lg:space-x-0 lg:overflow-x-visible lg:snap-none [scrollbar-width:none] no-scrollbar">
+
+                <style>
+                    .no-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+                </style>
+
+                <div data-slot="card"
+                    class="w-full shrink-0 snap-center md:w-auto md:shrink relative text-card-foreground flex flex-col rounded-xl border shadow-sm group overflow-hidden border-border bg-card transition-all hover:border-primary/50">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="E-commerce de Moda"
+                            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            src="src/img/Homem_cuida_destaca.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        <div
+                            class="mb-2 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary-foreground">
+                            +420% em vendas</div>
+                        <h3 class="mb-2 text-xl font-bold">E-commerce de Moda</h3>
+                        <p class="text-sm">Reestruturação completa da estratégia digital com foco em Meta Ads e Google
+                            Shopping</p>
+                    </div>
+                </div>
+
+                <div data-slot="card"
+                    class="w-full shrink-0 snap-center md:w-auto md:shrink relative text-card-foreground flex flex-col rounded-xl border shadow-sm group overflow-hidden border-border bg-card transition-all hover:border-primary/50">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="SaaS B2B"
+                            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            src="src/img/Cliente atrasou.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        <div
+                            class="mb-2 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary-foreground">
+                            ROI de 8x</div>
+                        <h3 class="mb-2 text-xl font-bold">SaaS B2B</h3>
+                        <p class="text-sm">Campanha de LinkedIn Ads + Inbound Marketing gerando 200+ leads
+                            qualificados/mês</p>
+                    </div>
+                </div>
+
+                <div data-slot="card"
+                    class="w-full shrink-0 snap-center md:w-auto md:shrink relative text-card-foreground flex flex-col rounded-xl border shadow-sm group overflow-hidden border-border bg-card transition-all hover:border-primary/50">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="Rede de Restaurantes"
+                            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            src="src/img/RENOVADO.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        <div
+                            class="mb-2 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary-foreground">
+                            +300% pedidos online</div>
+                        <h3 class="mb-2 text-xl font-bold">Rede de Restaurantes</h3>
+                        <p class="text-sm">Estratégia omnichannel com foco em delivery e programas de fidelidade digital
+                        </p>
+                    </div>
+                </div>
+
+                <div data-slot="card"
+                    class="w-full shrink-0 snap-center md:w-auto md:shrink relative text-card-foreground flex flex-col rounded-xl border shadow-sm group overflow-hidden border-border bg-card transition-all hover:border-primary/50">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="Academia Premium"
+                            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            src="src/img/sono.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        <div
+                            class="mb-2 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary-foreground">
+                            +150 novos alunos</div>
+                        <h3 class="mb-2 text-xl font-bold">Academia Premium</h3>
+                        <p class="text-sm">Campanha local no Google Ads + Stories patrocinados gerando matrículas
+                            constantes</p>
+                    </div>
+                </div>
+
+                <div data-slot="card"
+                    class="w-full shrink-0 snap-center md:w-auto md:shrink relative text-card-foreground flex flex-col rounded-xl border shadow-sm group overflow-hidden border-border bg-card transition-all hover:border-primary/50">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="Imobiliária Digital"
+                            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            src="src/img/Deixa_seu_filho_ficar_entediado.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        <div
+                            class="mb-2 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary-foreground">
+                            45% mais visitas</div>
+                        <h3 class="mb-2 text-xl font-bold">Imobiliária Digital</h3>
+                        <p class="text-sm">SEO técnico + conteúdo estratégico posicionando nas primeiras páginas do
+                            Google</p>
+                    </div>
+                </div>
+
+                <div data-slot="card"
+                    class="w-full shrink-0 snap-center md:w-auto md:shrink relative text-card-foreground flex flex-col rounded-xl border shadow-sm group overflow-hidden border-border bg-card transition-all hover:border-primary/50">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="Escola de Cursos Online"
+                            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            src="src/img/Corte especial para os pequenos, cuidado de gigante!.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        <div
+                            class="mb-2 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary-foreground">
+                            R$ 2M+ em vendas</div>
+                        <h3 class="mb-2 text-xl font-bold">Escola de Cursos Online</h3>
+                        <p class="text-sm">Funil completo de vendas com webinars + remarketing + e-mail automation</p>
+                    </div>
+                </div>
+                <div data-slot="card"
+                    class="w-full shrink-0 snap-center md:w-auto md:shrink relative text-card-foreground flex flex-col rounded-xl border shadow-sm group overflow-hidden border-border bg-card transition-all hover:border-primary/50">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="Escola de Cursos Online"
+                            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            src="src/img/SERVIÇO COMPLETO DE BUFFET.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        <div
+                            class="mb-2 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary-foreground">
+                            R$ 2M+ em vendas</div>
+                        <h3 class="mb-2 text-xl font-bold">Escola de Cursos Online</h3>
+                        <p class="text-sm">Funil completo de vendas com webinars + remarketing + e-mail automation</p>
+                    </div>
+                </div>
+                <div data-slot="card"
+                    class="w-full shrink-0 snap-center md:w-auto md:shrink relative text-card-foreground flex flex-col rounded-xl border shadow-sm group overflow-hidden border-border bg-card transition-all hover:border-primary/50">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="Escola de Cursos Online"
+                            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            src="src/img/judicialseguranca.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        <div
+                            class="mb-2 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary-foreground">
+                            R$ 2M+ em vendas</div>
+                        <h3 class="mb-2 text-xl font-bold">Escola de Cursos Online</h3>
+                        <p class="text-sm">Funil completo de vendas com webinars + remarketing + e-mail automation</p>
+                    </div>
+                </div>
+                <div data-slot="card"
+                    class="w-full shrink-0 snap-center md:w-auto md:shrink relative text-card-foreground flex flex-col rounded-xl border shadow-sm group overflow-hidden border-border bg-card transition-all hover:border-primary/50">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="Escola de Cursos Online"
+                            class="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            src="src/img/todaLinhadesconto.png">
+                    </div>
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6 text-white opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        <div
+                            class="mb-2 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary-foreground">
+                            R$ 2M+ em vendas</div>
+                        <h3 class="mb-2 text-xl font-bold">Escola de Cursos Online</h3>
+                        <p class="text-sm">Funil completo de vendas com webinars + remarketing + e-mail automation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto max-w-4xl">
+                <div class="mb-8 text-center">
+                    <h2 class="mb-4 text-balance text-4xl font-bold text-foreground md:text-5xl">Como Funciona Meu
+                        Processo</h2>
+                    <p class="text-balance text-xl text-muted-foreground">Veja como transformo desafios em resultados 
+                    </p>
+                </div>
+                <div class="relative aspect-video overflow-hidden rounded-2xl border-2 border-primary/30">
+
+                    <video class="absolute inset-0 h-full w-full object-cover" src="src/video/videoMKT.mp4"
+                        title="Teste estúdio mkt" frameborder="0" controls preload="metadata">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                </div>
+                <div class="mt-12 grid gap-6 sm:grid-cols-3">
+                    <div class="text-center">
+                        <div class="mb-3 text-4xl font-bold text-primary">01</div>
+                        <div class="mb-2 text-lg font-semibold text-foreground">Análise</div>
+                        <div class="text-sm text-muted-foreground">Entendimento profundo do negócio e objetivos</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="mb-3 text-4xl font-bold text-primary">02</div>
+                        <div class="mb-2 text-lg font-semibold text-foreground">Estratégia</div>
+                        <div class="text-sm text-muted-foreground">Planejamento customizado baseado em dados</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="mb-3 text-4xl font-bold text-primary">03</div>
+                        <div class="mb-2 text-lg font-semibold text-foreground">Execução</div>
+                        <div class="text-sm text-muted-foreground">Implementação e otimização contínua</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="depoimentos" class="py-20 bg-card/30">
+        <div class="container mx-auto px-4">
+            <div class="mb-12 text-center">
+                <h2 class="mb-4 text-balance text-4xl font-bold text-foreground md:text-5xl">O Que Dizem os Clientes
+                </h2>
+                <p class="text-balance text-xl text-muted-foreground">Feedback de quem já transformou seus resultados
+                </p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm border-border bg-card p-6">
+                    <div class="mb-4 flex gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg></div>
+                    <p class="mb-6 text-muted-foreground">"Sofia transformou completamente nossa estratégia digital. Em
+                        6 meses, triplicamos nosso tráfego qualificado e dobramos as conversões. Profissionalismo e
+                        resultados excepcionais!"</p>
+                    <div class="flex items-center gap-3"><img alt="Carlos Mendes"
+                            class="h-12 w-12 rounded-full object-cover"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/confident-businessman-TdPdNYal08ZwOsidxPeppYiIrD31Pu.png">
+                        <div>
+                            <div class="font-semibold text-foreground">Carlos Mendes</div>
+                            <div class="text-sm text-muted-foreground">CEO, TechStart</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm border-border bg-card p-6">
+                    <div class="mb-4 flex gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg></div>
+                    <p class="mb-6 text-muted-foreground">"A melhor investimento que fizemos foi contratar a Sofia. Suas
+                        campanhas de Meta Ads geraram um ROI de 600%. Recomendo de olhos fechados!"</p>
+                    <div class="flex items-center gap-3"><img alt="Ana Paula Silva"
+                            class="h-12 w-12 rounded-full object-cover"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/confident-businesswoman-oH380X5PR5bmWTJPV7DrobCQ70j8dg.png">
+                        <div>
+                            <div class="font-semibold text-foreground">Ana Paula Silva</div>
+                            <div class="text-sm text-muted-foreground">Diretora de Marketing, FashionHub</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm border-border bg-card p-6">
+                    <div class="mb-4 flex gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg></div>
+                    <p class="mb-6 text-muted-foreground">"Expertise impressionante! Sofia não apenas executou, mas
+                        educou nossa equipe sobre marketing digital. Os resultados falam por si: +400% em leads
+                        qualificados."</p>
+                    <div class="flex items-center gap-3"><img alt="Roberto Alves"
+                            class="h-12 w-12 rounded-full object-cover"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/entrepreneur-man-portrait-AljpXfK0DoRDssS2WJoel97cosp1s7.png">
+                        <div>
+                            <div class="font-semibold text-foreground">Roberto Alves</div>
+                            <div class="text-sm text-muted-foreground">Fundador, GrowthLab</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm border-border bg-card p-6">
+                    <div class="mb-4 flex gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg></div>
+                    <p class="mb-6 text-muted-foreground">"Minha agenda ficou completamente lotada após a campanha da
+                        Sofia. Ela realmente entende de geração de leads locais. Simplesmente fantástico!"</p>
+                    <div class="flex items-center gap-3"><img alt="Juliana Costa"
+                            class="h-12 w-12 rounded-full object-cover"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/professional-woman-portrait-aRtFhI6toDZYfQKtZxHYSmAPGsdCBC.png">
+                        <div>
+                            <div class="font-semibold text-foreground">Juliana Costa</div>
+                            <div class="text-sm text-muted-foreground">Proprietária, Bella Estética</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm border-border bg-card p-6">
+                    <div class="mb-4 flex gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg></div>
+                    <p class="mb-6 text-muted-foreground">"Trabalhar com a Sofia foi uma experiência transformadora. Sua
+                        visão estratégica e atenção aos detalhes resultaram em um crescimento de 250% no nosso
+                        pipeline."</p>
+                    <div class="flex items-center gap-3"><img alt="Fernando Lima"
+                            class="h-12 w-12 rounded-full object-cover"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/executive-man-portrait-oQ3EEsTZzVoZAc2NJjhe8EjBx41JH2.png">
+                        <div>
+                            <div class="font-semibold text-foreground">Fernando Lima</div>
+                            <div class="text-sm text-muted-foreground">CMO, DigitalCorp</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-slot="card"
+                    class="text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm border-border bg-card p-6">
+                    <div class="mb-4 flex gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-primary text-primary">
+                            <path
+                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                            </path>
+                        </svg></div>
+                    <p class="mb-6 text-muted-foreground">"Sofia entendeu perfeitamente nosso nicho e criou campanhas
+                        autênticas que ressoaram com nosso público. Nossas vendas online cresceram 380%!"</p>
+                    <div class="flex items-center gap-3"><img alt="Mariana Souza"
+                            class="h-12 w-12 rounded-full object-cover"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/entrepreneur-woman-portrait-2qbEUMOt3ui8uew8mfjqtQbhoFFRjj.jpg">
+                        <div>
+                            <div class="font-semibold text-foreground">Mariana Souza</div>
+                            <div class="text-sm text-muted-foreground">Fundadora, EcoMarket</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div data-slot="card"
+                class="text-card-foreground flex flex-col gap-6 rounded-xl shadow-sm border-2 border-primary/30 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 p-12 text-center">
+                <h2 class="mb-4 text-balance text-4xl font-bold text-foreground md:text-5xl">Pronto Para Transformar
+                    Seus Resultados?</h2>
+                <p class="mb-8 text-balance text-xl text-muted-foreground">Vamos conversar sobre como podemos levar seu
+                    negócio ao próximo nível</p>
+                <div class="flex flex-col items-center justify-center gap-4 sm:flex-row"><button data-slot="button"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-10 rounded-md px-6 has-[&gt;svg]:px-4 bg-primary text-primary-foreground hover:bg-primary/90">Agendar
+                        Consultoria Gratuita <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-arrow-right ml-2 h-4 w-4">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg></button><button data-slot="button"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-10 rounded-md px-6 has-[&gt;svg]:px-4 border-border text-foreground hover:bg-card bg-transparent">Ver
+                        Mais Casos de Sucesso</button></div>
+            </div>
+        </div>
+    </section>
+    <footer class="border-t border-border bg-card/50 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid gap-8 md:grid-cols-4">
+                <div>
+                    <div class="mb-4 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-sparkles h-6 w-6 text-primary">
+                            <path
+                                d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z">
+                            </path>
+                            <path d="M20 3v4"></path>
+                            <path d="M22 5h-4"></path>
+                            <path d="M4 17v2"></path>
+                            <path d="M5 18H3"></path>
+                        </svg><span class="text-xl font-bold text-foreground">Estúdio MKT</span></div>
+                    <p class="text-sm text-muted-foreground">Transformando marcas em experiências digitais memoráveis
+                        desde 2016.</p>
+                </div>
+                <div>
+                    <h3 class="mb-4 font-semibold text-foreground">Serviços</h3>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li>Tráfego Pago</li>
+                        <li>SEO</li>
+                        <li>Social Media</li>
+                        <li>E-mail Marketing</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-4 font-semibold text-foreground">Links</h3>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#trabalhos">Portfolio</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-4 font-semibold text-foreground">Contato</h3>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li>contato@sofiadigital.com</li>
+                        <li>+55 (11) 99999-9999</li>
+                        <li>São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">© 2025Estúdio MKT.
+                Todos os direitos reservados.</div>
+        </div>
+    </footer>
+    <script>
+        window.addEventListener('load', function () {
+            var body = document.body;
+
+            body.style.visibility = 'visible';
+            body.style.opacity = '1';
+
+        });
+
+    </script>
+</body>
+
+</html>
